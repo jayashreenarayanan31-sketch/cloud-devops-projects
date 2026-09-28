@@ -1,5 +1,5 @@
 from flask import Flask, Response, request
-import os
+import boto3
 import requests
 
 app = Flask(__name__)
@@ -11,11 +11,34 @@ WEBSITES = {
     "4": "http://fintrack"
 }
 
-active_site = os.environ.get("ACTIVE_SITE", "1")
+ssm = boto3.client("ssm", region_name="ap-southeast-2")
+
+
+def get_active_site():
+    try:
+        response = ssm.get_parameter(
+            Name="active-website"
+        )
+
+        site = response["Parameter"]["Value"]
+
+        if site in WEBSITES:
+            return site
+
+        return "1"
+
+    except Exception as e:
+        print(f"SSM error: {e}")
+        return "1"
 
 
 def proxy_request():
-    target = WEBSITES.get(active_site, WEBSITES["1"])
+    active_site = get_active_site()
+
+    target = WEBSITES.get(
+        active_site,
+        WEBSITES["1"]
+    )
 
     path = request.path
 
@@ -66,9 +89,12 @@ def proxy(path):
 def health():
     return {
         "status": "healthy",
-        "active_site": active_site
+        "active_site": get_active_site()
     }
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(
+        host="0.0.0.0",
+        port=5000
+    )

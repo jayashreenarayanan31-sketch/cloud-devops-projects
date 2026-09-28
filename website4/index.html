@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack - Personal Finance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">F</div>
+            <span>FinTrack</span>
+        </div>
+
+        <nav>
+            <a class="active" href="#">
+                <span>⌂</span> Dashboard
+            </a>
+            <a href="#">
+                <span>↗</span> Transactions
+            </a>
+            <a href="#">
+                <span>▣</span> Accounts
+            </a>
+            <a href="#">
+                <span>◉</span> Analytics
+            </a>
+            <a href="#">
+                <span>♢</span> Investments
+            </a>
+            <a href="#">
+                <span>⚙</span> Settings
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="upgrade">
+                <strong>FinTrack Pro</strong>
+                <p>Get smarter financial insights.</p>
+                <button>Upgrade</button>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">J</div>
+                <div>
+                    <strong>Jayashree</strong>
+                    <small>Personal Account</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="topbar">
+            <div>
+                <h1>Good morning, Jayashree 👋</h1>
+                <p>Here's your financial overview.</p>
+            </div>
+
+            <div class="top-actions">
+                <button class="icon-btn">⌕</button>
+                <button class="icon-btn">♧</button>
+                <button class="add-btn" onclick="addMoney()">+ Add Money</button>
+            </div>
+        </header>
+
+        <!-- Balance Cards -->
+        <section class="stats">
+
+            <div class="card balance-card">
+                <div class="card-header">
+                    <span>Total Balance</span>
+                    <button>•••</button>
+                </div>
+
+                <h2 id="balance">₹1,84,560</h2>
+
+                <div class="trend positive">
+                    ↑ 8.4%
+                    <span>vs last month</span>
+                </div>
+
+                <div class="mini-chart">
+                    <div style="height:35%"></div>
+                    <div style="height:48%"></div>
+                    <div style="height:42%"></div>
+                    <div style="height:65%"></div>
+                    <div style="height:54%"></div>
+                    <div style="height:76%"></div>
+                    <div style="height:70%"></div>
+                    <div style="height:90%"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span>Income</span>
+                    <span class="income-icon">↗</span>
+                </div>
+
+                <h2>₹72,450</h2>
+
+                <div class="trend positive">
+                    ↑ 12.6%
+                    <span>this month</span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill income"></div>
+                </div>
+
+                <small>Monthly income goal: ₹90,000</small>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span>Expenses</span>
+                    <span class="expense-icon">↘</span>
+                </div>
+
+                <h2>₹38,720</h2>
+
+                <div class="trend negative">
+                    ↓ 4.2%
+                    <span>vs last month</span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill expense"></div>
+                </div>
+
+                <small>Budget used: 64%</small>
+            </div>
+
+        </section>
+
+        <!-- Dashboard Grid -->
+        <section class="dashboard-grid">
+
+            <!-- Spending -->
+            <div class="card spending-card">
+
+                <div class="section-title">
+                    <div>
+                        <h3>Spending Overview</h3>
+                        <p>Track your spending activity</p>
+                    </div>
+
+                    <select id="period">
+                        <option>This Week</option>
+                        <option>This Month</option>
+                        <option>Last Month</option>
+                    </select>
+                </div>
+
+                <div class="chart">
+
+                    <div class="y-axis">
+                        <span>₹10k</span>
+                        <span>₹7.5k</span>
+                        <span>₹5k</span>
+                        <span>₹2.5k</span>
+                        <span>₹0</span>
+                    </div>
+
+                    <div class="bars">
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:45%"></div>
+                            <span>Mon</span>
+                        </div>
+
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:65%"></div>
+                            <span>Tue</span>
+                        </div>
+
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:40%"></div>
+                            <span>Wed</span>
+                        </div>
+
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:75%"></div>
+                            <span>Thu</span>
+                        </div>
+
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:55%"></div>
+                            <span>Fri</span>
+                        </div>
+
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:85%"></div>
+                            <span>Sat</span>
+                        </div>
+
+                        <div class="bar-wrap">
+                            <div class="bar" style="height:30%"></div>
+                            <span>Sun</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Categories -->
+            <div class="card categories-card">
+
+                <div class="section-title">
+                    <div>
+                        <h3>Spending Categories</h3>
+                        <p>This month's breakdown</p>
+                    </div>
+
+                    <button class="more-btn">•••</button>
+                </div>
+
+                <div class="category">
+                    <div class="category-left">
+                        <div class="category-icon food">🍔</div>
+                        <div>
+                            <strong>Food & Dining</strong>
+                            <small>32 transactions</small>
+                        </div>
+                    </div>
+                    <strong>₹8,450</strong>
+                </div>
+
+                <div class="category">
+                    <div class="category-left">
+                        <div class="category-icon shopping">🛍</div>
+                        <div>
+                            <strong>Shopping</strong>
+                            <small>18 transactions</small>
+                        </div>
+                    </div>
+                    <strong>₹6,280</strong>
+                </div>
+
+                <div class="category">
+                    <div class="category-left">
+                        <div class="category-icon travel">✈</div>
+                        <div>
+                            <strong>Travel</strong>
+                            <small>8 transactions</small>
+                        </div>
+                    </div>
+                    <strong>₹5,760</strong>
+                </div>
+
+                <div class="category">
+                    <div class="category-left">
+                        <div class="category-icon bills">⚡</div>
+                        <div>
+                            <strong>Bills & Utilities</strong>
+                            <small>12 transactions</small>
+                        </div>
+                    </div>
+                    <strong>₹4,920</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Transactions -->
+        <section class="card transactions">
+
+            <div class="section-title">
+                <div>
+                    <h3>Recent Transactions</h3>
+                    <p>Your latest financial activity</p>
+                </div>
+
+                <button class="view-btn">View All →</button>
+            </div>
+
+            <div class="transaction-list">
+
+                <div class="transaction">
+                    <div class="transaction-info">
+                        <div class="transaction-icon netflix">N</div>
+                        <div>
+                            <strong>Netflix</strong>
+                            <small>Entertainment • Today</small>
+                        </div>
+                    </div>
+
+                    <strong class="amount debit">-₹649</strong>
+                </div>
+
+                <div class="transaction">
+                    <div class="transaction-info">
+                        <div class="transaction-icon salary">₹</div>
+                        <div>
+                            <strong>Salary Credit</strong>
+                            <small>Income • Yesterday</small>
+                        </div>
+                    </div>
+
+                    <strong class="amount credit">+₹72,450</strong>
+                </div>
+
+                <div class="transaction">
+                    <div class="transaction-info">
+                        <div class="transaction-icon amazon">A</div>
+                        <div>
+                            <strong>Amazon</strong>
+                            <small>Shopping • Yesterday</small>
+                        </div>
+                    </div>
+
+                    <strong class="amount debit">-₹2,499</strong>
+                </div>
+
+                <div class="transaction">
+                    <div class="transaction-info">
+                        <div class="transaction-icon swiggy">S</div>
+                        <div>
+                            <strong>FoodDash</strong>
+                            <small>Food & Dining • 2 days ago</small>
+                        </div>
+                    </div>
+
+                    <strong class="amount debit">-₹780</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

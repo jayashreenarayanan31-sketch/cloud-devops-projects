@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>TravelGo | Explore the World</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        Travel<span>Go</span>
+    </div>
+
+
+    <nav>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#destinations">
+            Destinations
+        </a>
+
+        <a href="#hotels">
+            Hotels
+        </a>
+
+        <a href="#deals">
+            Deals
+        </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <button onclick="showTrips()">
+            My Trips
+        </button>
+
+        <button class="profile">
+            👤
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            DISCOVER • EXPLORE • EXPERIENCE
+        </p>
+
+
+        <h1>
+            Your next
+            <br>
+            adventure starts here.
+        </h1>
+
+
+        <p class="hero-description">
+
+            Discover beautiful destinations,
+            unforgettable experiences and
+            stays around the world.
+
+        </p>
+
+
+        <div class="search-panel">
+
+            <div class="search-field">
+
+                📍
+
+                <div>
+
+                    <small>
+                        Where to?
+                    </small>
+
+                    <input
+                        id="destinationSearch"
+                        type="text"
+                        placeholder="Search destination..."
+                        onkeyup="searchDestinations()"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="search-field">
+
+                📅
+
+                <div>
+
+                    <small>
+                        When?
+                    </small>
+
+                    <strong>
+                        Choose dates
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="search-button"
+                onclick="searchTravel()">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="hero-destination">
+
+            <div class="destination-emoji">
+                🏝️
+            </div>
+
+            <div>
+
+                <small>
+                    TRENDING DESTINATION
+                </small>
+
+                <h3>
+                    Bali, Indonesia
+                </h3>
+
+                <span>
+                    ⭐ 4.9 · 2,340 reviews
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- DESTINATIONS -->
+
+<section
+    class="destinations"
+    id="destinations">
+
+
+    <div class="section-header">
+
+        <div>
+
+            <p class="small-title">
+                EXPLORE
+            </p>
+
+            <h2>
+                Popular destinations
+            </h2>
+
+        </div>
+
+
+        <button
+            class="view-button"
+            onclick="showAllDestinations()">
+
+            View all →
+
+        </button>
+
+    </div>
+
+
+
+    <div
+        class="destination-grid"
+        id="destinationGrid">
+
+
+        <!-- BALI -->
+
+        <div
+            class="destination-card"
+            data-name="Bali"
+            onclick="bookDestination('Bali')">
+
+
+            <div class="destination-image bali">
+
+                🏝️
+
+                <span class="tag">
+                    POPULAR
+                </span>
+
+            </div>
+
+
+            <div class="destination-info">
+
+                <div>
+
+                    <h3>
+                        Bali
+                    </h3>
+
+                    <p>
+                        Indonesia
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    ₹45,999
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DUBAI -->
+
+        <div
+            class="destination-card"
+            data-name="Dubai"
+            onclick="bookDestination('Dubai')">
+
+
+            <div class="destination-image dubai">
+
+                🏙️
+
+                <span class="tag">
+                    TRENDING
+                </span>
+
+            </div>
+
+
+            <div class="destination-info">
+
+                <div>
+
+                    <h3>
+                        Dubai
+                    </h3>
+
+                    <p>
+                        UAE
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    ₹32,999
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PARIS -->
+
+        <div
+            class="destination-card"
+            data-name="Paris"
+            onclick="bookDestination('Paris')">
+
+
+            <div class="destination-image paris">
+
+                🗼
+
+                <span class="tag">
+                    ROMANTIC
+                </span>
+
+            </div>
+
+
+            <div class="destination-info">
+
+                <div>
+
+                    <h3>
+                        Paris
+                    </h3>
+
+                    <p>
+                        France
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    ₹68,999
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MALDIVES -->
+
+        <div
+            class="destination-card"
+            data-name="Maldives"
+            onclick="bookDestination('Maldives')">
+
+
+            <div class="destination-image maldives">
+
+                🌊
+
+                <span class="tag">
+                    BEACH
+                </span>
+
+            </div>
+
+
+            <div class="destination-info">
+
+                <div>
+
+                    <h3>
+                        Maldives
+                    </h3>
+
+                    <p>
+                        Indian Ocean
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    ₹39,999
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- HOTEL SECTION -->
+
+<section
+    class="hotels"
+    id="hotels">
+
+
+    <div class="section-header">
+
+        <div>
+
+            <p class="small-title">
+                STAY YOUR WAY
+            </p>
+
+            <h2>
+                Recommended stays
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hotel-grid">
+
+
+        <div class="hotel-card">
+
+            <div class="hotel-image">
+                🏨
+            </div>
+
+            <div class="hotel-info">
+
+                <h3>
+                    Ocean View Resort
+                </h3>
+
+                <p>
+                    📍 Bali, Indonesia
+                </p>
+
+                <div class="hotel-bottom">
+
+                    <span>
+                        ⭐ 4.9
+                    </span>
+
+                    <strong>
+                        ₹6,499/night
+                    </strong>
+
+                </div>
+
+                <button
+                    onclick="bookHotel('Ocean View Resort')">
+
+                    View stay
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hotel-card">
+
+            <div class="hotel-image city">
+                🏙️
+            </div>
+
+            <div class="hotel-info">
+
+                <h3>
+                    Downtown Dubai Hotel
+                </h3>
+
+                <p>
+                    📍 Dubai, UAE
+                </p>
+
+                <div class="hotel-bottom">
+
+                    <span>
+                        ⭐ 4.8
+                    </span>
+
+                    <strong>
+                        ₹8,999/night
+                    </strong>
+
+                </div>
+
+                <button
+                    onclick="bookHotel('Downtown Dubai Hotel')">
+
+                    View stay
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hotel-card">
+
+            <div class="hotel-image paris-hotel">
+                🗼
+            </div>
+
+            <div class="hotel-info">
+
+                <h3>
+                    Paris Central Hotel
+                </h3>
+
+                <p>
+                    📍 Paris, France
+                </p>
+
+                <div class="hotel-bottom">
+
+                    <span>
+                        ⭐ 4.7
+                    </span>
+
+                    <strong>
+                        ₹10,499/night
+                    </strong>
+
+                </div>
+
+                <button
+                    onclick="bookHotel('Paris Central Hotel')">
+
+                    View stay
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- DEAL -->
+
+<section
+    class="deal"
+    id="deals">
+
+
+    <div>
+
+        <p class="small-title">
+            LIMITED TIME OFFER
+        </p>
+
+
+        <h2>
+            Make your next trip
+            unforgettable.
+        </h2>
+
+
+        <p>
+            Save up to 35% on selected
+            holiday packages.
+        </p>
+
+
+        <button class="primary-button">
+
+            Explore offers →
+
+        </button>
+
+    </div>
+
+
+    <div class="deal-number">
+
+        <strong>
+            35%
+        </strong>
+
+        <span>
+            OFF
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        TravelGo
+    </div>
+
+    <p>
+        Explore more. Travel further.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#">
+            About
+        </a>
+
+        <a href="#">
+            Help
+        </a>
+
+        <a href="#">
+            Careers
+        </a>
+
+        <a href="#">
+            Terms
+        </a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 TravelGo
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

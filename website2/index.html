@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodDash | Food Delivery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        Food<span>Dash</span>
+    </div>
+
+
+    <div class="location">
+
+        📍
+
+        <div>
+            <small>Deliver to</small>
+            <strong>Chennai, Tamil Nadu</strong>
+        </div>
+
+    </div>
+
+
+    <div class="nav-search">
+
+        🔍
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search for food or restaurants..."
+            onkeyup="searchRestaurants()"
+        >
+
+    </div>
+
+
+    <div class="nav-actions">
+
+        <button onclick="showOrders()">
+            Orders
+        </button>
+
+        <button class="cart-button"
+                onclick="openCart()">
+
+            🛒
+
+            <span id="cart-count">
+                0
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            FAST • FRESH • DELICIOUS
+        </p>
+
+
+        <h1>
+            Your favourite food,
+            <br>
+            delivered to your door.
+        </h1>
+
+
+        <p class="hero-description">
+
+            Discover the best restaurants around you
+            and get your favourite meals delivered fast.
+
+        </p>
+
+
+        <button
+            class="primary-button"
+            onclick="scrollToRestaurants()">
+
+            Explore restaurants →
+
+        </button>
+
+    </div>
+
+
+    <div class="hero-food">
+
+        <div class="food-circle">
+
+            🍕
+
+        </div>
+
+        <div class="floating-card">
+
+            ⭐ 4.9
+
+            <span>
+                Top rated
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CATEGORIES -->
+
+<section class="categories">
+
+    <div class="section-header">
+
+        <div>
+
+            <p class="small-title">
+                WHAT ARE YOU CRAVING?
+            </p>
+
+            <h2>
+                Browse by category
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card"
+             onclick="filterCategory('Pizza')">
+
+            <div class="category-icon">
+                🍕
+            </div>
+
+            <h3>
+                Pizza
+            </h3>
+
+            <p>
+                80+ restaurants
+            </p>
+
+        </div>
+
+
+
+        <div class="category-card"
+             onclick="filterCategory('Burger')">
+
+            <div class="category-icon">
+                🍔
+            </div>
+
+            <h3>
+                Burgers
+            </h3>
+
+            <p>
+                65+ restaurants
+            </p>
+
+        </div>
+
+
+
+        <div class="category-card"
+             onclick="filterCategory('Indian')">
+
+            <div class="category-icon">
+                🍛
+            </div>
+
+            <h3>
+                Indian
+            </h3>
+
+            <p>
+                120+ restaurants
+            </p>
+
+        </div>
+
+
+
+        <div class="category-card"
+             onclick="filterCategory('Dessert')">
+
+            <div class="category-icon">
+                🍰
+            </div>
+
+            <h3>
+                Desserts
+            </h3>
+
+            <p>
+                50+ restaurants
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- RESTAURANTS -->
+
+<section
+    class="restaurants"
+    id="restaurants">
+
+
+    <div class="section-header">
+
+        <div>
+
+            <p class="small-title">
+                NEAR YOU
+            </p>
+
+            <h2>
+                Popular restaurants
+            </h2>
+
+        </div>
+
+
+        <button
+            class="view-button"
+            onclick="showAllRestaurants()">
+
+            View all →
+
+        </button>
+
+    </div>
+
+
+
+    <div
+        class="restaurant-grid"
+        id="restaurantGrid">
+
+
+        <!-- RESTAURANT 1 -->
+
+        <div
+            class="restaurant-card"
+            data-category="Pizza"
+            data-name="Urban Pizza">
+
+
+            <div class="restaurant-image pizza">
+
+                🍕
+
+                <span class="offer">
+                    40% OFF
+                </span>
+
+            </div>
+
+
+            <div class="restaurant-info">
+
+                <div class="restaurant-title">
+
+                    <h3>
+                        Urban Pizza
+                    </h3>
+
+                    <span class="rating">
+                        ⭐ 4.8
+                    </span>
+
+                </div>
+
+
+                <p class="food-type">
+                    Pizza • Italian • Fast Food
+                </p>
+
+
+                <p class="delivery">
+
+                    🛵 25-30 min
+
+                    <span>
+                        • ₹199 for two
+                    </span>
+
+                </p>
+
+
+                <button
+                    class="menu-button"
+                    onclick="addFood('Margherita Pizza', 299)">
+
+                    Add popular item · ₹299
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESTAURANT 2 -->
+
+        <div
+            class="restaurant-card"
+            data-category="Burger"
+            data-name="Burger House">
+
+
+            <div class="restaurant-image burger">
+
+                🍔
+
+                <span class="offer">
+                    30% OFF
+                </span>
+
+            </div>
+
+
+            <div class="restaurant-info">
+
+                <div class="restaurant-title">
+
+                    <h3>
+                        Burger House
+                    </h3>
+
+                    <span class="rating">
+                        ⭐ 4.7
+                    </span>
+
+                </div>
+
+
+                <p class="food-type">
+                    Burgers • American • Fast Food
+                </p>
+
+
+                <p class="delivery">
+
+                    🛵 20-25 min
+
+                    <span>
+                        • ₹249 for two
+                    </span>
+
+                </p>
+
+
+                <button
+                    class="menu-button"
+                    onclick="addFood('Classic Burger', 249)">
+
+                    Add popular item · ₹249
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESTAURANT 3 -->
+
+        <div
+            class="restaurant-card"
+            data-category="Indian"
+            data-name="Madras Kitchen">
+
+
+            <div class="restaurant-image indian">
+
+                🍛
+
+                <span class="offer">
+                    20% OFF
+                </span>
+
+            </div>
+
+
+            <div class="restaurant-info">
+
+                <div class="restaurant-title">
+
+                    <h3>
+                        Madras Kitchen
+                    </h3>
+
+                    <span class="rating">
+                        ⭐ 4.9
+                    </span>
+
+                </div>
+
+
+                <p class="food-type">
+                    South Indian • Biryani • Meals
+                </p>
+
+
+                <p class="delivery">
+
+                    🛵 30-35 min
+
+                    <span>
+                        • ₹299 for two
+                    </span>
+
+                </p>
+
+
+                <button
+                    class="menu-button"
+                    onclick="addFood('Chicken Biryani', 349)">
+
+                    Add popular item · ₹349
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESTAURANT 4 -->
+
+        <div
+            class="restaurant-card"
+            data-category="Dessert"
+            data-name="Sweet Corner">
+
+
+            <div class="restaurant-image dessert">
+
+                🍰
+
+                <span class="offer">
+                    25% OFF
+                </span>
+
+            </div>
+
+
+            <div class="restaurant-info">
+
+                <div class="restaurant-title">
+
+                    <h3>
+                        Sweet Corner
+                    </h3>
+
+                    <span class="rating">
+                        ⭐ 4.6
+                    </span>
+
+                </div>
+
+
+                <p class="food-type">
+                    Desserts • Cakes • Ice Cream
+                </p>
+
+
+                <p class="delivery">
+
+                    🛵 15-20 min
+
+                    <span>
+                        • ₹199 for two
+                    </span>
+
+                </p>
+
+
+                <button
+                    class="menu-button"
+                    onclick="addFood('Chocolate Cake', 199)">
+
+                    Add popular item · ₹199
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- PROMO -->
+
+<section class="promo">
+
+    <div>
+
+        <p class="small-title">
+            FOODDASH PLUS
+        </p>
+
+
+        <h2>
+            Free delivery on your
+            favourite restaurants.
+        </h2>
+
+
+        <p>
+            Join FoodDash Plus and enjoy
+            unlimited free deliveries.
+        </p>
+
+
+        <button class="primary-button">
+
+            Get FoodDash Plus →
+
+        </button>
+
+    </div>
+
+
+    <div class="promo-icon">
+        🛵
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        FoodDash
+    </div>
+
+    <p>
+        Fresh food. Fast delivery.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#">
+            About
+        </a>
+
+        <a href="#">
+            Help
+        </a>
+
+        <a href="#">
+            Careers
+        </a>
+
+        <a href="#">
+            Terms
+        </a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 FoodDash
+    </p>
+
+</footer>
+
+
+
+<!-- CART -->
+
+<div
+    id="cartModal"
+    class="cart-modal">
+
+
+    <div class="cart-content">
+
+
+        <button
+            class="close-button"
+            onclick="closeCart()">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            Your order
+        </h2>
+
+
+        <div id="cartItems">
+        </div>
+
+
+        <div class="cart-total">
+
+            Total
+
+            <strong id="cartTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <button
+            class="primary-button checkout">
+
+            Proceed to checkout
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

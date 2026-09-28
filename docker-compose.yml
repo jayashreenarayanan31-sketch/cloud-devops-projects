@@ -4,32 +4,47 @@ services:
     build:
       context: ./website1
     container_name: shopsphere
-    ports:
-      - "8080:80"
+    expose:
+      - "80"
     restart: unless-stopped
 
   website2:
     build:
       context: ./website2
     container_name: fooddash
-    ports:
-      - "8081:80"
+    expose:
+      - "80"
     restart: unless-stopped
 
   website3:
     build:
       context: ./website3
     container_name: travelgo
-    ports:
-      - "8082:80"
+    expose:
+      - "80"
     restart: unless-stopped
 
   website4:
     build:
       context: ./website4
     container_name: fintrack
-    ports:
-      - "8083:80"
+    expose:
+      - "80"
+    restart: unless-stopped
+
+  router:
+    build:
+      context: ./router
+    container_name: website-router
+    environment:
+      - ACTIVE_SITE=1
+    expose:
+      - "5000"
+    depends_on:
+      - website1
+      - website2
+      - website3
+      - website4
     restart: unless-stopped
 
   nginx:
@@ -41,21 +56,3 @@ services:
     depends_on:
       - router
     restart: unless-stopped
-
-  router:
-    build:
-      context: ./router
-    container_name: website-router
-    environment:
-      - ACTIVE_SITE=4
-    expose:
-      - "5000"
-    depends_on:
-      - website1
-      - website2
-      - website3
-      - website4
-    restart: unless-stopped
-
-networks:
-  default:

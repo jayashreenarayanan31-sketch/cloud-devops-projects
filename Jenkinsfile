@@ -41,7 +41,7 @@ pipeline {
                       --region ap-southeast-2
 
                     aws elasticbeanstalk update-environment \
-                      --environment-name cloud-devops-project \
+                      --environment-name Cloud-devops-project-env \
                       --version-label jenkins-${BUILD_NUMBER} \
                       --region ap-southeast-2
                 '''
